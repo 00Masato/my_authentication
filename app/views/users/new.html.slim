@@ -1,0 +1,22 @@
+h1 = 'create users'
+
+= form_with model: @user, local: true do |f|
+  - if @user.errors.any?
+    div
+      ul
+        - @user.errors.full_messages.each do |msg|
+          li = msg
+  .name-form
+    = f.label :name
+    = f.text_field :name
+  .email-form
+    = f.label :mail
+    = f.email_field :mail
+  .password-form
+    = f.label :password
+    = f.password_field :password
+  .password-form
+    = f.label :password_confirm
+    = f.password_field :password_confirm
+  .footer
+    = f.submit
